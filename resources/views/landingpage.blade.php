@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find Your Perfect Outbound Adventure</title>
+    <title>BeAD-Besar Anugrah Djaya</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css" rel="stylesheet">
     <style>
         :root {
             --primary-color: #4fd1c7;
@@ -42,15 +43,64 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
+        /* Hero Section with Swiper */
         .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
             height: 70vh;
             display: flex;
             align-items: center;
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-swiper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .hero-slide {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6));
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Swiper Navigation Buttons - Removed */
+        
+        /* Swiper Pagination */
+        .swiper-pagination-bullet {
+            background: rgba(255, 255, 255, 0.5);
+            width: 12px;
+            height: 12px;
+            margin: 0 8px;
+        }
+        
+        .swiper-pagination-bullet-active {
+            background: var(--primary-color);
+            transform: scale(1.2);
         }
         
         .btn-primary-custom {
@@ -187,6 +237,17 @@
             margin-right: 10px;
             color: white;
         }
+         .swiper-klien .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        .swiper-klien .swiper-slide img {
+            max-height: 80px;
+            object-fit: contain;
+        }
         .navbar-custom {
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -265,47 +326,25 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <!-- Ganti URL di bawah ini dengan URL logo Anda -->
-                <img src="path/to/your/logo.png" alt="OutboundLink Logo" height="40" class="d-inline-block logo-img">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#categories">Categories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#packages">Packages</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">Testimonials</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-                <div class="d-flex">
-                    <button class="btn btn-navbar me-2">Login</button>
-                    <button class="btn btn-primary-custom">Sign Up</button>
-                </div>
-            </div>
-        </div>
-    </nav>
+@include('layoutfrontend.navbar')
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Swiper -->
     <section id="home" class="hero-section">
-        <div class="container">
+        <!-- Swiper -->
+        <div class="swiper hero-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide hero-slide" style="background-image: url('https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');"></div>
+                <div class="swiper-slide hero-slide" style="background-image: url('https://images.unsplash.com/photo-1464822759844-d150baef493e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
+                <div class="swiper-slide hero-slide" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
+                <div class="swiper-slide hero-slide" style="background-image: url('https://images.unsplash.com/photo-1571019613914-85f342c6a11e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');"></div>
+            </div>
+
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="container hero-content">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <h1 class="display-4 fw-bold mb-4">Temukan Petualangan Outbound Sempurna Anda</h1>
@@ -316,13 +355,13 @@
         </div>
     </section>
 
-    <!-- Categories Section -->
+   <!-- Categories Section -->
     <section id="categories" class="py-5">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
                     <h2 class="fw-bold mb-3">Kategori Petualangan</h2>
-                    <p class="text-muted">Choose your adventure from our exciting categories</p>
+                    <p class="text-muted">Pilih petualangan Anda dari berbagai kategori menarik yang kami sediakan</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -331,8 +370,8 @@
                         <div class="category-icon">
                             <i class="fas fa-water"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">Water Sports</h5>
-                        <p class="text-muted">Exciting water adventures including rafting and water sports</p>
+                        <h5 class="fw-bold mb-3">Olahraga Air</h5>
+                        <p class="text-muted">Petualangan air yang seru termasuk arung jeram dan berbagai olahraga air lainnya</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -340,8 +379,8 @@
                         <div class="category-icon">
                             <i class="fas fa-mountain"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">Mountain Hiking</h5>
-                        <p class="text-muted">Challenging mountain trails and scenic hiking experiences</p>
+                        <h5 class="fw-bold mb-3">Pendakian Gunung</h5>
+                        <p class="text-muted">Jalur pendakian gunung yang menantang dengan pengalaman hiking yang menakjubkan</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -349,8 +388,8 @@
                         <div class="category-icon">
                             <i class="fas fa-swimmer"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">Swimming</h5>
-                        <p class="text-muted">Swimming adventures in natural pools and scenic locations</p>
+                        <h5 class="fw-bold mb-3">Renang</h5>
+                        <p class="text-muted">Petualangan berenang di kolam alami dan lokasi dengan pemandangan indah</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -358,8 +397,8 @@
                         <div class="category-icon">
                             <i class="fas fa-bicycle"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">Cycling Tours</h5>
-                        <p class="text-muted">Scenic cycling routes through beautiful landscapes</p>
+                        <h5 class="fw-bold mb-3">Tur Sepeda</h5>
+                        <p class="text-muted">Rute bersepeda dengan pemandangan indah melalui lanskap alam yang menawan</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -367,8 +406,8 @@
                         <div class="category-icon">
                             <i class="fas fa-running"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">Adventure Sports</h5>
-                        <p class="text-muted">Adrenaline-pumping adventure sports and extreme activities</p>
+                        <h5 class="fw-bold mb-3">Olahraga Petualangan</h5>
+                        <p class="text-muted">Olahraga petualangan yang memacu adrenalin dan aktivitas ekstrim yang menantang</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -377,7 +416,7 @@
                             <i class="fas fa-campground"></i>
                         </div>
                         <h5 class="fw-bold mb-3">Team Building</h5>
-                        <p class="text-muted">Corporate team building activities and group adventures</p>
+                        <p class="text-muted">Aktivitas team building perusahaan dan petualangan kelompok yang membangun kerjasama</p>
                     </div>
                 </div>
             </div>
@@ -398,7 +437,7 @@
                     <div class="package-card">
                         <div class="package-img" style="background-image: url('https://images.unsplash.com/photo-1464822759844-d150ad6bfe89?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
                         <div class="p-4">
-                            <h5 class="fw-bold mb-3">Mountain River Rafting</h5>
+                            <h5 class="fw-bold mb-3">Paket Anak - Anak</h5>
                             <p class="text-muted mb-3">Experience thrilling white water rafting through scenic mountain rivers with professional guides.</p>
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div>
@@ -406,11 +445,11 @@
                                     <small class="text-muted">Difficulty: Intermediate</small>
                                 </div>
                                 <div class="text-end">
-                                    <h6 class="fw-bold text-primary mb-0">$299</h6>
-                                    <small class="text-muted">per person</small>
+                                    <h6 class="fw-bold text-primary mb-0">Rp.50.000</h6>
+                                    <small class="text-muted">per orang</small>
                                 </div>
                             </div>
-                            <button class="btn btn-primary-custom w-100">Book Now</button>
+                            <button class="btn btn-primary-custom w-100" data-bs-toggle="modal" data-bs-target="#kidsPackageModal">View Detail</button>
                         </div>
                     </div>
                 </div>
@@ -418,7 +457,7 @@
                     <div class="package-card">
                         <div class="package-img" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');"></div>
                         <div class="p-4">
-                            <h5 class="fw-bold mb-3">Alpine HIKING</h5>
+                            <h5 class="fw-bold mb-3">Paket Dewasa</h5>
                             <p class="text-muted mb-3">Explore breathtaking alpine trails with stunning mountain views and pristine wilderness.</p>
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div>
@@ -426,11 +465,11 @@
                                     <small class="text-muted">Difficulty: Advanced</small>
                                 </div>
                                 <div class="text-end">
-                                    <h6 class="fw-bold text-primary mb-0">$449</h6>
-                                    <small class="text-muted">per person</small>
+                                    <h6 class="fw-bold text-primary mb-0">Rp.75.000</h6>
+                                    <small class="text-muted">per orang</small>
                                 </div>
                             </div>
-                            <button class="btn btn-primary-custom w-100">Book Now</button>
+                            <button class="btn btn-primary-custom w-100" data-bs-toggle="modal" data-bs-target="#adultPackageModal">View Detail</button>
                         </div>
                     </div>
                 </div>
@@ -438,13 +477,201 @@
         </div>
     </section>
 
+    <!-- Modal Paket Anak - Anak -->
+   <!-- Kids Package Modal -->
+    <div class="modal fade" id="kidsPackageModal" tabindex="-1" aria-labelledby="kidsPackageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="kidsPackageModalLabel">Paket Anak-Anak - Detail Lengkap</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1464822759844-d150ad6bfe89?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded mb-3" alt="Paket Anak-Anak">
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="fw-bold text-primary">Informasi Paket</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-clock text-muted me-2"></i><strong>Durasi:</strong> 2 Hari 1 Malam</li>
+                                <li><i class="fas fa-users text-muted me-2"></i><strong>Kapasitas:</strong> 15-30 Anak</li>
+                                <li><i class="fas fa-child text-muted me-2"></i><strong>Usia:</strong> 7-12 Tahun</li>
+                                <li><i class="fas fa-signal text-muted me-2"></i><strong>Tingkat Kesulitan:</strong> Mudah</li>
+                                <li><i class="fas fa-map-marker-alt text-muted me-2"></i><strong>Lokasi:</strong> Sentul, Bogor</li>
+                            </ul>
+                            
+                            <h6 class="fw-bold text-primary mt-4">Harga</h6>
+                            <div class="alert alert-info">
+                                <h4 class="fw-bold mb-1">Rp 50.000 <small class="text-muted fs-6">per anak</small></h4>
+                                <small>Sudah termasuk makan, akomodasi, dan peralatan</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <h6 class="fw-bold text-primary">Aktivitas Yang Disediakan</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Games & Ice Breaking</li>
+                                <li>Treasure Hunt</li>
+                                <li>Mini Flying Fox</li>
+                                <li>Team Building Games</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Art & Craft Workshop</li>
+                                <li>Nature Walk</li>
+                                <li>Swimming Pool</li>
+                                <li>Campfire & Story Telling</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h6 class="fw-bold text-primary mt-4">Fasilitas Termasuk</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li><i class="fas fa-check text-success me-2"></i>Transportasi AC</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Makan 3x & Snack 2x</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Akomodasi Cottage</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Peralatan Outbound</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li><i class="fas fa-check text-success me-2"></i>Instruktur Bersertifikat</li>
+                                <li><i class="fas fa-check text-success me-2"></i>P3K & Asuransi</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Sertifikat Keikutsertaan</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Dokumentasi Foto</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-warning mt-3">
+                        <h6 class="fw-bold mb-2"><i class="fas fa-exclamation-triangle me-2"></i>Yang Perlu Dibawa</h6>
+                        <p class="mb-0">Pakaian ganti, perlengkapan mandi, obat-obatan pribadi, kamera, dan semangat petualangan!</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary-custom">
+                        <i class="fas fa-whatsapp me-2"></i>Pesan Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Adult Package Modal -->
+    <div class="modal fade" id="adultPackageModal" tabindex="-1" aria-labelledby="adultPackageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold" id="adultPackageModalLabel">Paket Dewasa - Detail Lengkap</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="img-fluid rounded mb-3" alt="Paket Dewasa">
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="fw-bold text-primary">Informasi Paket</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-clock text-muted me-2"></i><strong>Durasi:</strong> 3 Hari 2 Malam</li>
+                                <li><i class="fas fa-users text-muted me-2"></i><strong>Kapasitas:</strong> 10-25 Orang</li>
+                                <li><i class="fas fa-user text-muted me-2"></i><strong>Usia:</strong> 17+ Tahun</li>
+                                <li><i class="fas fa-signal text-muted me-2"></i><strong>Tingkat Kesulitan:</strong> Menantang</li>
+                                <li><i class="fas fa-map-marker-alt text-muted me-2"></i><strong>Lokasi:</strong> Gunung Salak, Bogor</li>
+                            </ul>
+                            
+                            <h6 class="fw-bold text-primary mt-4">Harga</h6>
+                            <div class="alert alert-info">
+                                <h4 class="fw-bold mb-1">Rp 75.000 <small class="text-muted fs-6">per orang</small></h4>
+                                <small>Sudah termasuk makan, akomodasi, dan peralatan</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <h6 class="fw-bold text-primary">Aktivitas Yang Disediakan</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Rock Climbing</li>
+                                <li>Flying Fox 200m</li>
+                                <li>River Tubing</li>
+                                <li>High Rope Challenge</li>
+                                <li>Survival Training</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Team Building Ekstrim</li>
+                                <li>Night Hiking</li>
+                                <li>Paintball Battle</li>
+                                <li>Rafting Grade III</li>
+                                <li>Leadership Challenge</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h6 class="fw-bold text-primary mt-4">Fasilitas Termasuk</h6>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li><i class="fas fa-check text-success me-2"></i>Transportasi Offroad</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Makan 6x & Snack 4x</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Tenda Outdoor Premium</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Peralatan Safety Lengkap</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li><i class="fas fa-check text-success me-2"></i>Guide Profesional</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Medical Support</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Sertifikat Achievement</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Video Dokumentasi</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-danger mt-3">
+                        <h6 class="fw-bold mb-2"><i class="fas fa-exclamation-triangle me-2"></i>Syarat & Ketentuan</h6>
+                        <p class="mb-1">• Kondisi fisik sehat dan tidak memiliki penyakit jantung</p>
+                        <p class="mb-1">• Wajib membawa surat keterangan sehat dari dokter</p>
+                        <p class="mb-0">• Mengikuti briefing keselamatan sebelum aktivitas</p>
+                    </div>
+                    
+                    <div class="alert alert-warning mt-3">
+                        <h6 class="fw-bold mb-2"><i class="fas fa-backpack me-2"></i>Yang Perlu Dibawa</h6>
+                        <p class="mb-0">Sepatu hiking, pakaian outdoor, jaket tebal, headlamp, sleeping bag pribadi, obat-obatan pribadi, dan mental petualang!</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary-custom">
+                        <i class="fas fa-whatsapp me-2"></i>Pesan Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <!-- Features Section -->
     <section id="about" class="py-5">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
                     <h2 class="fw-bold mb-3">Kenapa Harus Kami</h2>
-                    <p class="text-muted">Why choose us for your adventure</p>
+                    <p class="text-muted">Mengapa memilih kami untuk petualangan Anda</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -453,8 +680,8 @@
                         <div class="feature-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">Safety First</h5>
-                        <p class="text-muted">Professional equipment and certified guides ensure your safety throughout the adventure.</p>
+                        <h5 class="fw-bold mb-3">Keamanan Utama</h5>
+                        <p class="text-muted">Peralatan profesional dan pemandu bersertifikat memastikan keamanan Anda sepanjang petualangan.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -462,8 +689,8 @@
                         <div class="feature-icon">
                             <i class="fas fa-users"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">Expert Guides</h5>
-                        <p class="text-muted">Our experienced and certified guides will make your adventure memorable and safe.</p>
+                        <h5 class="fw-bold mb-3">Pemandu Ahli</h5>
+                        <p class="text-muted">Pemandu berpengalaman dan bersertifikat kami akan membuat petualangan Anda berkesan dan aman.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -471,8 +698,8 @@
                         <div class="feature-icon">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <h5 class="fw-bold mb-3">24/7 Support</h5>
-                        <p class="text-muted">Round-the-clock customer support to assist you before, during, and after your adventure.</p>
+                        <h5 class="fw-bold mb-3">Dukungan 24/7</h5>
+                        <p class="text-muted">Dukungan pelanggan sepanjang waktu untuk membantu Anda sebelum, selama, dan setelah petualangan.</p>
                     </div>
                 </div>
             </div>
@@ -480,12 +707,12 @@
     </section>
 
     <!-- Testimonials -->
-    <section id="testimonials" class="py-5 bg-darker">
+   <section id="testimonials" class="py-5 bg-darker">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-12 text-center">
                     <h2 class="fw-bold mb-3">Testimoni Pengguna</h2>
-                    <p class="text-muted">What our adventurers say about us</p>
+                    <p class="text-muted">Apa kata para petualang tentang layanan kami</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -495,10 +722,10 @@
                             <div class="testimonial-avatar me-3">BA</div>
                             <div>
                                 <h6 class="mb-0 fw-bold">Bima Ardhana</h6>
-                                <small class="text-muted">Adventure Enthusiast</small>
+                                <small class="text-muted">Pecinta Petualangan</small>
                             </div>
                         </div>
-                        <p class="text-muted">"Amazing experience! The mountain hiking tour was perfectly organized with professional guides. Highly recommend for adventure seekers!"</p>
+                        <p class="text-muted">"Pengalaman yang luar biasa! Tur pendakian gunung diorganisir dengan sempurna dan pemandunya sangat profesional. Sangat direkomendasikan untuk pencari petualangan!"</p>
                         <div class="text-warning">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -511,13 +738,13 @@
                 <div class="col-md-4">
                     <div class="testimonial-card">
                         <div class="d-flex align-items-center mb-3">
-                            <div class="testimonial-avatar me-3">JD</div>
+                            <div class="testimonial-avatar me-3">AD</div>
                             <div>
-                                <h6 class="mb-0 fw-bold">John Doe</h6>
+                                <h6 class="mb-0 fw-bold">Andi Dermawan</h6>
                                 <small class="text-muted">Travel Blogger</small>
                             </div>
                         </div>
-                        <p class="text-muted">"The river rafting adventure was incredible! Safety measures were top-notch and the scenery was breathtaking. Will definitely book again!"</p>
+                        <p class="text-muted">"Petualangan arung jeramnya luar biasa! Sistem keamanannya sangat baik dan pemandangannya menakjubkan. Pasti akan booking lagi!"</p>
                         <div class="text-warning">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -532,11 +759,11 @@
                         <div class="d-flex align-items-center mb-3">
                             <div class="testimonial-avatar me-3">SR</div>
                             <div>
-                                <h6 class="mb-0 fw-bold">Sarah Rita</h6>
-                                <small class="text-muted">Corporate Manager</small>
+                                <h6 class="mb-0 fw-bold">Sari Rahayu</h6>
+                                <small class="text-muted">Manajer Perusahaan</small>
                             </div>
                         </div>
-                        <p class="text-muted">"Perfect for team building! Our corporate group had an amazing time. Great organization and fantastic memories created!"</p>
+                        <p class="text-muted">"Sempurna untuk team building! Kelompok perusahaan kami sangat menikmati. Organisasinya bagus dan menciptakan kenangan yang fantastis!"</p>
                         <div class="text-warning">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -550,56 +777,84 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="contact" class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5>OutboundLink</h5>
-                    <p class="text-muted">Professional outbound and adventure services with certified guides and top-notch safety standards.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="col-md-2 mb-4">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#">About Us</a></li>
-                        <li class="mb-2"><a href="#">Our Services</a></li>
-                        <li class="mb-2"><a href="#">Packages</a></li>
-                        <li class="mb-2"><a href="#">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2 mb-4">
-                    <h5>Categories</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#">Mountain Hiking</a></li>
-                        <li class="mb-2"><a href="#">Water Sports</a></li>
-                        <li class="mb-2"><a href="#">Team Building</a></li>
-                        <li class="mb-2"><a href="#">Adventure Sports</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5>Contact Info</h5>
-                    <p class="text-muted mb-2"><i class="fas fa-map-marker-alt me-2"></i>123 Adventure Street, Jakarta, Indonesia</p>
-                    <p class="text-muted mb-2"><i class="fas fa-phone me-2"></i>+62 123 456 7890</p>
-                    <p class="text-muted mb-2"><i class="fas fa-envelope me-2"></i>info@outboundlink.com</p>
-                </div>
+      <section id="klien" class="py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5">
+        <h2 style="color: #000000ff;">Klien Kami</h2>
+        <p class="text-center text-muted mb-4">
+        "Kepercayaan dari berbagai pihak adalah bukti komitmen kami dalam menyukseskan kegiatan outbound mereka."
+        </p>
+
+        <!-- Swiper -->
+        <div class="swiper swiper-klien">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide d-flex justify-content-center">
+            <div class="logo-card">
+                <img src="assets/image/klien1.jpeg" alt="Klien 1" class="img-fluid">
             </div>
-            <hr class="my-4" style="border-color: #495057;">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p class="text-muted mb-0">&copy; 2025 OutboundLink. All rights reserved.</p>
-                </div>
+            </div>
+            <div class="swiper-slide d-flex justify-content-center">
+            <div class="logo-card">
+                <img src="assets/image/klien2.jpeg" alt="Klien 2" class="img-fluid">
+            </div>
+            </div>
+            <div class="swiper-slide d-flex justify-content-center">
+            <div class="logo-card">
+                <img src="assets/image/klien3.png" alt="Klien 3" class="img-fluid">
+            </div>
+            </div>
+            <div class="swiper-slide d-flex justify-content-center">
+            <div class="logo-card">
+                <img src="assets/image/klien4.jpeg" alt="Klien 4" class="img-fluid">
+            </div>
+            </div>
+            <div class="swiper-slide d-flex justify-content-center">
+            <div class="logo-card">
+                <img src="assets/image/klien5.png" alt="Klien 5" class="img-fluid">
+            </div>
+            </div>
+            <div class="swiper-slide d-flex justify-content-center">
+            <div class="logo-card">
+                <img src="assets/image/klien6.png" alt="Klien 6" class="img-fluid">
+            </div>
             </div>
         </div>
-    </footer>
+        </div>
+    </div>
+    </section>
+
+
+    {{-- footer --}}
+    @include('layoutfrontend.footer')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
     <script>
+        // Initialize Hero Swiper
+        const heroSwiper = new Swiper('.hero-swiper', {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            speed: 1500,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            // Resume autoplay after user interaction
+            on: {
+                slideChange: function () {
+                    this.autoplay.start();
+                }
+            }
+        });
+
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar-custom');
@@ -624,5 +879,45 @@
             });
         });
     </script>
+
+      <!-- Swiper JS -->
+            <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+            <script>
+            const swiper = new Swiper(".swiper-klien", {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+                },
+                breakpoints: {
+                768: {
+                    slidesPerView: 3,
+                },
+                576: {
+                    slidesPerView: 2,
+                },
+                0: {
+                    slidesPerView: 1,
+                }
+                }
+            });
+            </script>
+
+                    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+            <script>
+            AOS.init({
+                once: true, // hanya animasi sekali saat scroll
+                duration: 1000 // durasi animasi dalam ms
+            });
+            </script>
+
+            <!-- AOS Animation Library (Optional) -->
+            <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+            <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+            <script>
+            AOS.init();
+            </script>
 </body>
 </html>

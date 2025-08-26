@@ -17,4 +17,7 @@ Route::get('/pembayaran', function () {
 Route::get('/paket', function () {
     return view('paket');
 });
+Route::get('/galeri', function () {
+    return view('galeri');
+});
 
